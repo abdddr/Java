@@ -17,6 +17,6 @@ public class LibraryUser {
 
     // Method to display user info
     public void displayInfo() {
-        System.out.println("User: " + name + " | ID: " + userId);
+        System.out.println("User " + name + " | ID: " + userId);
     }
 }

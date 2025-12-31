@@ -27,7 +27,7 @@ public class Book {
 
 
     public void displayInfo() {
-        System.out.println("Book: " + title + " | Author: " + author + " | ISBN: " + isbn + " | Borrowed: " + isBorrowed);
+        System.out.println("book: " + title + " | Author: " + author + " | ISBN: " + isbn + " | Borrowed: " + isBorrowed);
     }
 }
 

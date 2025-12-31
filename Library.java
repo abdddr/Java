@@ -26,7 +26,7 @@ public class Library {
             book.setBorrowed(true);
             System.out.println(user.getName() + " borrowed " + book.getTitle());
         } else {
-            System.out.println(book.getTitle() + " is already borrowed.");
+            System.out.println(book.getTitle() + " Is already borrowed.");
         }
     }
 

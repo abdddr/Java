@@ -9,7 +9,7 @@ public class Main {
 
 
         LibraryUser user1 = new LibraryUser("Alice", 1);
-        LibraryUser user2 = new LibraryUser("Bob", 2);
+        LibraryUser user2 = new LibraryUser("BOB", 2);
 
 
         myLibrary.addBook(book1);
