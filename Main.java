@@ -1,27 +1,32 @@
 public class Main {
     public static void main(String[] args) {
 
-        Library myLibrary = new Library("City Library");
+        Library library = new Library("Digital Library");
 
+        Book b1 = new Book("1984", "George Orwell", "111");
+        Book b2 = new Book("The Hobbit", "Tolkien", "222");
+        Book b3 = new Book("Clean Code", "Robert Martin", "333");
 
-        Book book1 = new Book("1984", "George Orwell", "12345");
-        Book book2 = new Book("The Hobbit", "J.R.R. Tolkien", "67890");
+        library.addBook(b1);
+        library.addBook(b2);
+        library.addBook(b3);
 
+        LibraryUser user = new StudentUser("Alice", 1); // полиморфизм
 
-        LibraryUser user1 = new LibraryUser("Alice", 1);
-        LibraryUser user2 = new LibraryUser("BOB", 2);
+        System.out.println("=== All books ===");
+        library.showAllBooks();
 
+        System.out.println("\n=== Available books ===");
+        library.showAvailableBooks();
 
-        myLibrary.addBook(book1);
-        myLibrary.addBook(book2);
-        myLibrary.addUser(user1);
-        myLibrary.addUser(user2);
+        System.out.println("\n=== Borrowing book ===");
+        Book found = library.findBookByTitle("1984");
+        if (found != null && !found.isBorrowed()) {
+            user.borrowBook(found);
+        }
 
-
-        myLibrary.borrowBook(user1, book1);
-        myLibrary.borrowBook(user2, book1);
-
-
-        myLibrary.displayLibrary();
+        System.out.println("\n=== Sorted books ===");
+        library.sortBooksByTitle();
+        library.showAllBooks();
     }
 }

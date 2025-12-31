@@ -1,44 +1,46 @@
 import java.util.ArrayList;
+import java.util.Comparator;
 
 public class Library {
     private String name;
     private ArrayList<Book> books;
-    private ArrayList<LibraryUser> users;
 
     public Library(String name) {
         this.name = name;
-        this.books = new ArrayList<>();
-        this.users = new ArrayList<>();
+        books = new ArrayList<>();
     }
 
-    // Add book
     public void addBook(Book book) {
         books.add(book);
     }
 
-
-    public void addUser(LibraryUser user) {
-        users.add(user);
-    }
-
-    public void borrowBook(LibraryUser user, Book book) {
-        if (!book.isBorrowed()) {
-            book.setBorrowed(true);
-            System.out.println(user.getName() + " borrowed " + book.getTitle());
-        } else {
-            System.out.println(book.getTitle() + " Is already borrowed.");
-        }
-    }
-
-    public void displayLibrary() {
-        System.out.println("Library: " + name);
-        System.out.println("Books:");
+    // 🔍 Searching
+    public Book findBookByTitle(String title) {
         for (Book book : books) {
-            book.displayInfo();
+            if (book.getTitle().equalsIgnoreCase(title)) {
+                return book;
+            }
         }
-        System.out.println("Users:");
-        for (LibraryUser user : users) {
-            user.displayInfo();
+        return null;
+    }
+
+    // 🔎 Filtering
+    public void showAvailableBooks() {
+        for (Book book : books) {
+            if (!book.isBorrowed()) {
+                System.out.println(book);
+            }
+        }
+    }
+
+    // 🔃 Sorting
+    public void sortBooksByTitle() {
+        books.sort(Comparator.comparing(Book::getTitle));
+    }
+
+    public void showAllBooks() {
+        for (Book book : books) {
+            System.out.println(book);
         }
     }
 }

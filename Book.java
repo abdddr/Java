@@ -1,9 +1,10 @@
+import java.util.Objects;
+
 public class Book {
     private String title;
     private String author;
     private String isbn;
     private boolean isBorrowed;
-
 
     public Book(String title, String author, String isbn) {
         this.title = title;
@@ -12,22 +13,38 @@ public class Book {
         this.isBorrowed = false;
     }
 
+    public String getTitle() {
+        return title;
+    }
 
-    public String getTitle() { return title; }
-    public void setTitle(String title) { this.title = title; }
+    public boolean isBorrowed() {
+        return isBorrowed;
+    }
 
-    public String getAuthor() { return author; }
-    public void setAuthor(String author) { this.author = author; }
+    public void setBorrowed(boolean borrowed) {
+        isBorrowed = borrowed;
+    }
 
-    public String getIsbn() { return isbn; }
-    public void setIsbn(String isbn) { this.isbn = isbn; }
+    @Override
+    public String toString() {
+        return "Book{" +
+                "title='" + title + '\'' +
+                ", author='" + author + '\'' +
+                ", isbn='" + isbn + '\'' +
+                ", borrowed=" + isBorrowed +
+                '}';
+    }
 
-    public boolean isBorrowed() { return isBorrowed; }
-    public void setBorrowed(boolean borrowed) { isBorrowed = borrowed; }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Book)) return false;
+        Book book = (Book) o;
+        return isbn.equals(book.isbn);
+    }
 
-
-    public void displayInfo() {
-        System.out.println("book: " + title + " | Author: " + author + " | ISBN: " + isbn + " | Borrowed: " + isBorrowed);
+    @Override
+    public int hashCode() {
+        return Objects.hash(isbn);
     }
 }
-
