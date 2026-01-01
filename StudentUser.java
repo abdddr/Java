@@ -6,7 +6,7 @@ public class StudentUser extends LibraryUser {
 
     @Override
     public void borrowBook(Book book) {
-        System.out.println("student " + name + " borrowed " + book.getTitle());
+        System.out.println("student     " + name + " borrowed " + book.getTitle());
         book.setBorrowed(true);
     }
 }
