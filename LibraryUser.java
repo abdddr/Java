@@ -17,6 +17,6 @@ public class LibraryUser {
 
     @Override
     public String toString() {
-        return "User{name='" + name + "', id=" + userId + '}';
+        return "User{name='' + name + "', id=" + userId + '}';
     }
 }
