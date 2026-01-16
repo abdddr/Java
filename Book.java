@@ -20,6 +20,8 @@ public class Book {
     public boolean isBorrowed() {
         return isBorrowed;
     }
+    public String getIsbn() { return isbn; }
+    public String getAuthor() { return author; }
 
     public void setBorrowed(boolean borrowed) {
         isBorrowed = borrowed;
